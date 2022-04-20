@@ -1,0 +1,20 @@
+//Header file for project 1
+//Colin Fullum
+//9-5-19
+#ifndef BIGINT_HPP_
+#define BIGINT_HPP_
+
+#include <iostream>
+
+int main(){
+  const int CAPACITY = 400
+  
+  class bigint {
+    public
+    bigint()//default constructor
+    bigint 
+
+    private
+}
+}
+#endif BIGINT_HPP_

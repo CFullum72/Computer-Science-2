@@ -1,0 +1,44 @@
+//
+// Colin Fullum
+// infix2prefix.cpp
+// lab 11 assignment
+// converts infix expressions to prefix expressions
+// November 7, 2019
+//
+/////////////////////////////////////////////////////
+
+#include <iostream>
+#include "../stack/stack.hpp"
+#include "../string/string.hpp"
+
+String infix_to_prefix(const char[]);
+
+int main(){
+
+}
+
+String infix_to_prefix(const char expr[]){
+  stack<String> s;
+  String token, lhs, rhs, op;
+  int i = 0;
+
+  while(expr[i] != 0){
+
+    token = expr[i];
+
+    if( token == ")" ){
+      rhs = s.pop();
+      op  = s.pop();
+      lhs = s.pop();
+      s.push(op + lhs + rhs);
+    }
+
+    else if( token != "(" ){
+      s.push(token);
+    }
+
+    ++i;
+  }
+  
+  return s.pop();
+}

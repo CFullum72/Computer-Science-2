@@ -1,0 +1,43 @@
+//
+// Colin Fullum
+// postfix.cpp
+// main file for postfix function
+// November 10, 2019
+//
+/////////////////////////////////////////////
+
+#include "utilities.hpp"
+#include<fstream>
+
+int main(int argc, char const* argv[]){
+
+  if (argc < 2) {
+    std::cerr << "No input file, please specify a file to read from!" << std::endl;
+  }
+
+  std::ifstream in(argv[1]);
+
+  if (!in.is_open()) {
+    std::cerr << "Specified infix file could not be opened" << std::endl;
+  }
+
+  while(!in.eof()){
+    String str = "";
+    char ch;
+    in.get(ch);
+    while((ch != '\n') && (!in.eof())){
+      str += ch;
+      in.get(ch);
+    }
+    
+    std::cout <<"before conversion, the expression is: ";
+    std::cout <<  str << std::endl;
+    if(in.eof())break;
+    std::cout << "after conversion, the expression is:";
+    std::cout << infix_to_postfix(str) << std::endl;;
+  }
+  
+  in.close();
+
+  return 0;
+}

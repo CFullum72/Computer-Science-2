@@ -1,0 +1,36 @@
+//fibinacci sequence (n-1) + (n-2)
+//base 2 base cases are 0 and 1
+//Colin Fullum
+//October 24, 2019
+//CS23001
+
+#include<iostream>
+
+int fib(int);
+int tailFib(int, int, int);
+
+int main(){
+  
+  
+
+
+}
+
+
+int fib (int n){
+  //2 baase cases
+  if((n == 0) || (n == 1)){
+    return n;
+  }
+  else {
+    return((fib(n-1)) + (fib(n-2)));
+  }
+}
+
+int tailFib (int n, int a = 0, int b = 1){
+  if(n == 0)
+    return a;
+  if(n == 1)
+    return b;
+  return fib(n - 1, b, a + b)
+}

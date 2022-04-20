@@ -1,0 +1,27 @@
+//Header file for project 1
+//Colin Fullum
+//9-5-19
+#ifndef BIGINT_HPP_
+#define BIGINT_HPP_
+
+#include <iostream>
+
+const int CAPACITY = 400
+
+class bigint {
+  public
+  bigint(); //default constructor
+  bigint(int); //constructor, intializes a number that
+               //is entered, ex.) bigint(128) 
+  bigint(const char[]); //constructor, character
+   
+
+  void debugPrint(std::ostream&) cost;
+  private
+  bool a[CAPACITY];
+}
+   
+std::ostream& operater<< (std::ostream&, const set&);
+std::istream& operater>> (std::istream&, const set&);
+
+#endif BIGINT_HPP_

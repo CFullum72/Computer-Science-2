@@ -1,0 +1,36 @@
+//
+//Colin Fullum
+//utilities.cpp
+//contains free functions for assembler project
+//November 10, 2019
+//
+///////////////////////////////////////////////
+
+#include "utilites.hpp"
+
+void infix_to_postfix(std::ifstream& in, std::ostream& out){
+  stack<String> s;
+  String left, right, op, token;
+  char ch[300];
+
+  while(!in.eof()){
+    in >> ch;
+    token = String(ch);
+ 
+   if(in.eof()) break;
+  
+   if(token == ";"){
+     out << s.top() << ";" << std::endl;
+     s = stack<String>();
+   }
+   else if (token == ")"){
+     right = s.pop();
+     op = s.pop();
+     left = s.pop();
+     s.push(left + right + op);
+   }
+   else if (token != "(") {
+       s.push(token + ' ');
+    }
+  }    
+}

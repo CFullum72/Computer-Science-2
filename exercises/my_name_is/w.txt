@@ -1,0 +1,25 @@
+ 17:31:14 up 18 days, 23:53, 23 users,  load average: 0.04, 0.05, 0.05
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+whaverst pts/0    daphne.sdml.cs.k Tue10   13:14   0.27s  0.27s -bash
+whaverst pts/1    daphne.sdml.cs.k Tue09   13:14   0.77s  0.77s -bash
+hpeyravi pts/2    saturn.itl.cs.ke Mon13   28:58m  0.04s  0.04s -bash
+mpirogow pts/3    198.179.173.2    15:44    1:46m  0.03s  0.03s -bash
+jbehler1 pts/5    ec2-54-91-230-24 17:23   18.00s  0.06s  0.06s -bash
+cbryan20 pts/7    lab201.labs.cs.k 16:39    1:14   0.15s  0.15s -bash
+mhaywort pts/8    10.14.88.37      16:46    2:26   0.12s  0.12s -bash
+mdietz12 pts/9    cpe-174-100-196- 11:11    4:14m  0.39s  0.39s -bash
+lkelsey1 pts/10   lab223.labs.cs.k 16:39    5:22   0.05s  0.05s -bash
+kchmiel  pts/11   cpe-174-104-113- 14:20    1:59m  0.13s  0.13s -bash
+cfullum  pts/12   lab209.labs.cs.k 16:39    2.00s  0.15s  0.00s w
+jhorni14 pts/13   lab217.labs.cs.k 16:39   42.00s  0.08s  0.08s -bash
+eoleary2 pts/14   lab221.labs.cs.k 16:46   58.00s  0.53s  0.33s emacs my_name_is.cpp
+psarbiew pts/15   10.14.81.12      16:40    3:54   0.07s  0.00s nano my_name_is.cpp
+wgong2   pts/16   10.14.86.141     16:41   18.00s  0.08s  0.08s -bash
+ylamtala pts/17   10.14.90.156     16:41   10.00s  0.12s  0.12s -bash
+zbeal1   pts/18   0.sub-174-232-1. 16:45   37:54   0.03s  0.03s -bash
+ahughe34 pts/19   10.14.64.244     16:47   10.00s  0.08s  0.08s -bash
+tholst   pts/20   10.14.78.55      16:47    2.00s  0.10s  0.10s -bash
+bbenjam5 pts/21   10.12.43.72      17:22    2.00s  0.20s  0.12s emacs BenjaminBryce-43203-WarmUp.c
+sshrest5 pts/22   10.14.199.179    17:28   18.00s  0.12s  0.09s vim lecture.txt
+yzhou35  pts/29   10.14.69.49      12:23    4:13m  0.09s  0.09s -bash
+kpugh1   pts/34   99-3-14-184.ligh 12:46    2:34   1:02   0.38s -bash

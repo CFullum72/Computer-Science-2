@@ -1,0 +1,190 @@
+//Colin Fullum
+//string.cpp
+//Project 2 String class implementation
+//
+//October 7, 2019
+
+#include "string.hpp"
+
+String::String(){ //deafult constructor
+  s[0] = 0;
+}
+
+String::String(char ch) { //single character constructor
+  s[0] = ch;  //String a('x')
+  s[1] = 0;
+}
+
+
+//REQUIRES: str.length < capacity()
+String::String(const char str[]) { //string of characters contructor
+  int i = 0;//String a("abc")
+  while (str[i] != '\0') {
+    if (i == capacity()) break;
+    s[i] = str[i];
+    ++i;
+  }
+  s[i] = 0;
+}
+
+
+//REQUIRES: 0 <= i < length()
+//allows access to const opjects
+char String::operator[](int i) const {
+  assert (i >= 0);       //You could write these two lines as one, but you dont know
+  assert (i < length()); //which one fails if one does
+  return s[i];
+}
+
+//allows access and modification to non-const objects
+//if you want to use [] on a const objects, you must 
+//the const version, not this one
+char& String::operator[](int i) {
+  assert (i >= 0);  
+  assert (i < length()); 
+  return s[i];
+}
+
+//ENSURES returnVal == i where s[i] ==0
+//returns the length of the string
+int String::length() const {
+  int result = 0;
+  while (s[result] != 0) ++result;
+  return result;
+}
+
+
+//String a("abc"), b("xyz"), c
+//c = a + b -> c = ("xyzabc")
+//returnVal == "xyzabc" where "xyz" + "abc"
+String String::operator+(const String& rhs) const {
+  String result(s); //result is now equal to ("xyz")
+  int offset = length(); //offset = 3
+  int i = 0;
+  while (rhs.s[i] != 0) {
+    result.s[offset + i] = rhs.s[i]; //puts (rhs.s[i] into result
+    ++i;
+    if (offset+i == capacity()) break;
+  }
+  result.s[offset + i] = 0;
+  return result; //result =("xyzabc"0)
+}
+
+//convets char into a String, adds it to rhs String
+String operator + (char lhs, const String& rhs) { 
+   return String(lhs) + rhs; 
+} 
+
+//converts char array into String and adds it to rhs String
+String operator + (const char lhs[], const String& rhs) { 
+   return String(lhs) + rhs; 
+}
+
+
+//returnVal = ("xyzabc") where ("xyz") += ("abc")
+String& String::operator += (const String& rhs) {
+  int offset = length();
+  int i = 0;
+  while (rhs.s[i] != 0) {
+    s[offset + 1] = rhs.s[i];
+    ++i;
+    if (offset + 1 == capacity()) break;
+  }
+  s[offset + 1] = 0;
+  return *this; //returns a where a += b, whatever "this" was called on
+}
+
+//convets char into a String, adds it to rhs String
+String operator += (char lhs, const String& rhs) {
+  return String(lhs) += rhs;
+}
+
+//converts char array into String and adds it to rhs String
+String operator += (const char lhs[], const String& rhs) {
+  return String(lhs) += rhs;
+}
+
+bool String::operator== (const String& rhs) const {
+  int i = 0;
+  while (s[i] != 0 && s[i] == rhs.s[i]) ++i; //increment i while s[i] is not zero and is equal to rhs.s[i]
+  return s[i] == rhs.s[i];                  //either the both of them are 0, or they are not equal
+}
+
+bool operator == (char lhs, const String & rhs)          { return String(lhs) == rhs;}
+bool operator == (const char lhs[], const String & rhs) { return String(lhs) == rhs; }
+
+bool String::operator < (const String& rhs) const {
+  int i = 0;
+  while ((s[i] != 0) && (rhs.s[i] != 0) && (s[i] == rhs.s[i])) ++i;
+  return s[i] < rhs.s[i];
+}
+
+bool operator <  (char lhs,          const String & rhs)  { return String (lhs) < rhs; }
+bool operator < (const char lhs[],  const String & rhs)  { return String (lhs) < rhs; }
+bool operator != (const String& lhs, const String & rhs)  { return       !(lhs == rhs); }
+bool operator <= (const String& lhs, const String & rhs)  { return        (lhs == rhs) || (lhs < rhs); }
+//bool operator >= (const String& lhs, const String & rhs)  { return        (lhs == rhs) || (lhs > rhs); }
+
+std::ostream& operator <<(std::ostream& out, const String& rhs) {
+  out << rhs.s;
+  return out;
+}
+
+std::istream& operator >> (std::istream& in, String& rhs) {
+  char buf[STRING_SIZE];
+  if (!in.eof())
+    in >> buf;
+  else
+    buf[0] = 0;
+  String a(buf);
+  rhs = a;
+  return in;
+}
+
+//REQUIRES: 0 <= start < length()
+//ENSURES: returnVal = i where s[i] == ch && i >= start
+//   or  returnVal = -1 if ch != s[start...length() - 1]
+int String::findch(int start, char ch) const {
+  if ((start < 0) || (start >= length())) return -1;
+  int i = start;
+  while (s[i] != 0) {
+    if (s[i] == ch) return i;
+    ++i;
+  }
+  return -1;
+}
+int String::findch(char ch) const { return findch(0, ch); }
+
+//REQUIRES: 0 <= start <= end < length()
+//ENSURES: returnVal == s[start,.... end]
+//
+String String::substr(int start, int end) const {
+  if (start < 0)       return String();
+  if (start > end)     return String();
+  if (end >= length()) return String();
+
+  String result;
+  int i = start;
+  while (i <= end) {
+    result += s[i];
+    ++i;
+  }
+  return result;
+}
+
+//REQUIRES: 0 <= start <= length() - str.length()
+//    length() >= str.length()
+//ENSURES:returnVal == i where s[i,..str.length - 1] == str
+//  returnVal == -1 if str not in s
+int String::findstr(int start, const String& str) const {
+  if ((start < 0) || (start > length() - str.length())) return -1;
+  if (length() < str.length()) return -1;
+
+  int strlen = str.length();
+  int i = start;
+  while ((s[i] != 0) && (i < length() - strlen)) {
+    if (str == substr(i, strlen - 1)) return i;
+    ++i;
+  }
+  return -1;
+}

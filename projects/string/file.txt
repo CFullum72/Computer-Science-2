@@ -1,0 +1,1 @@
+hello, my name is file and I am a place holder test file for the string input operator.

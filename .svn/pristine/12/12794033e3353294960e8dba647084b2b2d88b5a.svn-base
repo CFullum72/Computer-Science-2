@@ -1,0 +1,34 @@
+//
+//Colin Fullum
+//utilities.cpp
+//contains free functions for assembler project
+//November 10, 2019
+//
+///////////////////////////////////////////////
+
+#include "utilities.hpp"
+String infix_to_postfix(String str){
+  std::vector<String> v;
+  String right,
+         left,
+         op;
+  stack<String> s;
+
+  v = str.split(' ');
+
+  int i = 0;
+  while (v[i] != ";"){
+    if(v[i] == ")"){
+      right = s.pop();
+      op    = s.pop();
+      left  = s.pop();
+
+      s.push(left + right + op);
+    }
+    else if(v[i] != "(") s.push(v[i]);
+
+    ++i;
+  }
+  return s.top();
+}
+

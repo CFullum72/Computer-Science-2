@@ -1,0 +1,15 @@
+#IFNDEF CS_FIB_HPP
+#DEFINE CS_FIB_HPP
+// HPP file for the fibanacci lab
+// Colin fullum
+// October 24, 2019
+// CS 23001
+ 
+#include <iostream>
+
+int fib(int n);
+
+int tailFib(int n);
+
+
+#ENDIF

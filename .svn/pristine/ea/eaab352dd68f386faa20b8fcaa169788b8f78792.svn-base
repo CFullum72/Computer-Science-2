@@ -1,0 +1,22 @@
+//
+//Colin Fullum
+//utilities.hpp
+//hpp file for utilities
+//November 5, 2019
+//
+////////////////////////////////////
+
+#include "stack.hpp"
+#include "string.hpp"
+#include <iostream>
+#include <cassert>
+
+///////////////////////////////////////////////////////
+// converts an infix expression to a prefix expression 
+// i.e. (2 + 3) -> +23
+String infix_to_prefix  (const char[]);
+
+///////////////////////////////////////////////////////
+// converts an infix expression to a postfix expression
+// i.e. (2 + 3) -> 23+
+String infix_to_postfix (const char[]);

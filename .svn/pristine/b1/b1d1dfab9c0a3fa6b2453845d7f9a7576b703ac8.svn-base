@@ -1,0 +1,11 @@
+//
+// tests: input operator <<
+//
+//
+#include "string.hpp"
+#include <iostream>
+#include <cassert>
+int main()
+{
+  std::cout << "this is a place holder" << std::endl;
+}

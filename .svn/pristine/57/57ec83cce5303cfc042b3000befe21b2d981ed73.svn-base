@@ -1,0 +1,58 @@
+//  String class test program
+//
+//  Tests: length() and capacity()
+//
+
+#include "string.hpp"
+#include <cassert>
+#include <iostream>
+
+//===========================================================================
+int main ()
+{
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("abapiurgbvauprgv");
+
+    //VERIFY
+    assert(str.length ()   == 16);
+    assert(str.capacity()    == STRING_SIZE -1);
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("abapiurgbvaiubavipbweiugrbqpiufbeuprgv");
+
+    //VERIFY
+    assert(str.length ()   == 38);
+    assert(str.capacity()    == STRING_SIZE -1);
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("1234567890123456789012345678901234567890123456789012345678901234567890");
+
+    //VERIFY
+    assert(str.length ()   == 70);
+    assert(str.capacity()    == STRING_SIZE -1);
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("I AM TYPING MANY WORDS, SO THAT I CAN COUNT THE NUMBER OF CHARACTERS!!!!!!!!!!!!!!!!!!!!! ");
+
+    //VERIFY
+    assert(str.length ()   == 90);
+    assert(str.capacity()   == STRING_SIZE -1);
+  }
+
+
+  // ADD ADDITIONAL TESTS AS NECESSARY
+    
+  std::cout << "Done testing Length and Capactiy." << std::endl;
+}
+

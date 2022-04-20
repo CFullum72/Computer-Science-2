@@ -1,0 +1,7 @@
+//Colin Fullum
+//Filio header file
+
+include <iostream>
+
+void readUpToSpace();
+void addTwoNums();

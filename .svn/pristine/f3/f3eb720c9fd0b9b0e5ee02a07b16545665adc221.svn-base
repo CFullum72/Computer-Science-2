@@ -1,0 +1,115 @@
+//  String class test program
+//
+//  Tests: operators + and +=
+//
+
+#include "string.hpp"
+#include <cassert>
+#include <iostream>
+
+//===========================================================================
+int main ()
+{
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str1 ("a");
+    String  str2 ("bc")
+    // TEST
+    String result = str1 + str2;
+
+    // VERIFY
+    assert(str1    == "a");
+    assert(str2   == "bc");
+    assert(result == "abc");
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str1 ("abcd");
+    String  str2 ("efgh")
+   
+    // TEST
+    String result = str1 + str2;
+
+    // VERIFY
+    assert(str    == "abcd");
+    assert(str1   == "efgh");
+    assert(result == "abcdefhg");
+  }
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str1 ("abcd");
+    String  str2 ("efgh")
+
+    // TEST
+      String result = str1 + str2;
+
+    // VERIFY
+    assert(str    == "abcd");
+    assert(str1   == "efgh");
+    assert(result == "abcdefhg");
+  }
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str1 ("Colin ");
+    String  str2 ("Fullum")
+
+    // TEST
+      String result = str1 + str2;
+
+    // VERIFY
+    assert(str    == "Colin ");
+    assert(str1   == "Fullum");
+    assert(result == "Colin Fullum");
+  }
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str1 ("Final");
+    String  str2 ("+ Test")
+
+    // TEST
+      String result = str1 + str2;
+
+    // VERIFY
+    assert(str    == "Final");
+    assert(str1   == "+ Tests");
+    assert(result == "Final + Test");
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("Colin");
+
+    // TEST
+    String result("Fullum "
+    String result += str ;
+
+    // VERIFY
+    assert(str    == "Colin");
+    assert(result == "Fullum Colin");
+  }
+
+  {
+    //------------------------------------------------------
+    // SETUP FIXTURE
+    String  str("calafraglisticxpial");
+
+    // TEST
+    String result("super");
+    result += str;
+
+    // VERIFY
+    assert(str    == "calafraglisticxpial");
+    assert(result == "supercalafraglisticxpial");
+  }
+
+  // ADD ADDITIONAL TESTS AS NECESSARY
+    
+  std::cout << "Done testing concatination." << std::endl;
+}

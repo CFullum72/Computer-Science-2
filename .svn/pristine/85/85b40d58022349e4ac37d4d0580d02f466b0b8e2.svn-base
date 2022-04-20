@@ -1,0 +1,17 @@
+//fibinacci sequence (n-1) + (n-2)
+//base 2 base cases are 0 and 1
+//Colin Fullum
+//October 24, 2019
+//CS23001
+
+#include"fib.hpp"
+
+int fib (int n){
+  //2 baase cases
+  if((n == 0) || (n == 1)){
+    return n;
+  }
+  else {
+    return((fib(n-1)) + (fib(n-2)));
+  }
+}

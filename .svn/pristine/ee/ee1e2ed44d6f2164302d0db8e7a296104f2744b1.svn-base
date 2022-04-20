@@ -1,0 +1,18 @@
+//
+// Colin Fullum
+// test_postfix.cpp
+// tests infix_to_postfix function
+// November 10, 2019
+//
+////////////////////////////////////////
+
+#include "utilities.hpp"
+int main() {
+    
+  {
+    std::ifstream in("data3-1.txt");
+    infix_to_postfix(in, std::cout);     
+  }
+    
+  std::cout << "Postfix conversion tests done" << std::endl;
+}

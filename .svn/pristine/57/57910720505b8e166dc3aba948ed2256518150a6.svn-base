@@ -1,0 +1,29 @@
+//Colin Fullum
+//cpp file for bigint project
+//9-11-2019
+
+#include "bigint.hpp"
+
+bigint::bigint(){
+
+}
+
+bigint::bigint(int a){
+
+}
+
+bigint::bigint(char[]){
+
+}
+
+void bigint::debugPrint(std::ostream&) const{
+
+}
+
+bigint::std::ostream& operator<< (std::ostream&, const set&){
+
+}
+
+bigint::std::istream& operator>> (std::istream&, const set&){
+
+}
